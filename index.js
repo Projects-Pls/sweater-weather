@@ -1,4 +1,5 @@
 const app = require('express')();
+require('dotenv').config();
 const PORT = 1337;
 
 app.listen(PORT, () => {
