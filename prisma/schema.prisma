@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model clothingItem {
+  id          Int          @id
+  brand       String       @db.Char(255)
+  category    CategoryENUM
+  color       ColorENUM
+  cost        Decimal      @db.Money
+  description String
+  occasion    OccasionENUM
+  warmth      Int
+}
+
+enum CategoryENUM {
+  Outerwear
+  Tops
+  Bottoms
+  Innerwear
+  Footwear
+  Accessory
+}
+
+enum ColorENUM {
+  Lights
+  Darks
+  Neutrals
+  Statements
+}
+
+enum OccasionENUM {
+  Casual
+  Smart_Casual
+  Business_Casual
+  Professional
+  Formal
+  Party
+}
